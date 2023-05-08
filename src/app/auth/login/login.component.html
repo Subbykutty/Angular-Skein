@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        src="../../assets/images/this.svg"
+        alt="no-image"
+        class="image-sec"
+        height="400px"
+        width="400px"
+      />
+    </div>
+
+    <!-- form -->
+    <div class="col-md-6 card">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h2>LOGIN</h2>
+        <!-- <div></div> -->
+        <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          formControlName="email"
+          required
+        />
+
+        <div *ngIf="email.invalid && email.touched" class="text-danger">
+          <span *ngIf="email.errors?.['required']">Email is required</span>
+
+          <span *ngIf="email.errors?.['pattern']">Enter a valid Email</span>
+        </div>
+        <br />
+
+        <label
+          ><i class="fa fa-unlock-alt" aria-hidden="true"></i> Password</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          formControlName="password"
+          required
+        />
+
+        <div
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="text-danger"
+        >
+          <span *ngIf="password.errors?.['required']"
+            >Password is required</span
+          >
+
+          <span *ngIf="password.errors?.['minlength']"
+            >Password Must be more than 8 characters</span
+          >
+
+          <span *ngIf="password.errors?.['maxlength']"
+            >Password Must not extend more than 22 characters</span
+          >
+
+          <span *ngIf="password.errors?.['pattern']"
+            >Password need 1 Special Charcter and Number</span
+          >
+        </div>
+
+        <div class="bttn">
+          <button
+            type="submit"
+            [disabled]="!loginForm.valid"
+            (click)="IntoDashboard()"
+            class="btn btn-primary"
+          >
+            Login
+          </button>
+        </div>
+
+        <p>
+          Don't have an account? &nbsp; &nbsp; &nbsp; &nbsp;<a
+            routerLink="/auth/signup"
+            ><span class="span-tag">Signup</span></a
+          >
+        </p>
+      </form>
+    </div>
+    <!-- form-end -->
+  </div>
+</div>

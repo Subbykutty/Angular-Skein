@@ -1,0 +1,207 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 input-container">
+      <form [formGroup]="signupForm">
+        <h2>SIGNUP</h2>
+
+        <label><i class="fa fa-user" aria-hidden="true"></i> Name</label>
+
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          formControlName="name"
+          required
+        />
+
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="text-danger"
+        >
+          <span *ngIf="name.errors?.['required']">Name is required</span>
+
+          <!-- <span *ngIf="full_name.errors?.['minlength']">Atleast 3 characters Must</span> -->
+
+          <span *ngIf="name.errors?.['maxlength']"
+            >Name Must not extend more than 20 characters</span
+          >
+
+          <span *ngIf="name.errors?.['pattern']"> Enter a Valid Name</span>
+        </div>
+
+        <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+        <input
+          type="text"
+          name="email"
+          class="form-control"
+          formControlName="email"
+          required
+        />
+
+        <div
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="text-danger"
+        >
+          <span *ngIf="email.errors?.['required']">Email is required</span>
+
+          <span *ngIf="email.errors?.['email']">Enter a valid Email</span>
+
+          <span *ngIf="email.errors?.['pattern']">Email is Invalid</span>
+        </div>
+
+        <label><i class="fa fa-phone" aria-hidden="true"></i> Number</label>
+        <input
+          oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          class="form-control"
+          minlength="10"
+          maxlength="10"
+          type="text"
+          name="number"
+          formControlName="number"
+          required
+        />
+
+        <div
+          *ngIf="number.invalid && (number.dirty || number.touched)"
+          class="text-danger"
+        >
+          <span *ngIf="number.errors?.['required']">Number is required</span>
+
+          <span *ngIf="number.errors?.['pattern']">Enter a valid Number</span>
+        </div>
+
+        <label
+          ><i class="fa fa-pie-chart" aria-hidden="true"></i> Work
+          Experience</label
+        >
+        <input
+          type="text"
+          name="experience"
+          class="form-control"
+          formControlName="experience"
+          required
+
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  class="form-control" minlength="1" maxlength="2"
+        />
+
+        <div
+          *ngIf="experience.invalid && (experience.dirty || experience.touched)"
+          class="text-danger"
+        >
+          <span *ngIf="experience.errors?.['required']"
+            >work experience is required</span
+          >
+
+          <span *ngIf="experience.errors?.['maxlength']">
+            Must not extend more than 2 Digit</span
+          >
+
+          <span *ngIf="experience.errors?.['pattern']"
+            >Enter A Valid Experience</span
+          >
+        </div>
+
+        <label>
+          <i class="fa fa-level-up" aria-hidden="true"></i> Interests</label
+        >
+        <input
+          type="text"
+          name="interests"
+          class="form-control"
+          formControlName="interests"
+          required
+        />
+
+        <div
+          *ngIf="interests.invalid && (interests.dirty || interests.touched)"
+          class="text-danger"
+        >
+          <span *ngIf="interests.errors?.['required']"
+            >Interests is required</span
+          >
+          <!-- 
+      <span *ngIf="interests.errors?.['minlength']">Must be more than 3 characters</span>
+        
+      <span *ngIf="interests.errors?.['maxlength']">Interests Must not extend more than 22 characters</span> -->
+
+          <span *ngIf="interests.errors?.['pattern']"
+            >Special characters must not allowed</span
+          >
+        </div>
+
+        <label
+          ><i class="fa fa-building-o" aria-hidden="true"></i> Company
+          Name</label
+        >
+
+        <input
+          type="text"
+          name="user_company"
+          class="form-control"
+          formControlName="company"
+          required
+        />
+
+        <div
+          *ngIf="company.invalid && (company.dirty || company.touched)"
+          class="text-danger"
+        >
+          <span *ngIf="company.errors?.['required']"
+            >company Name is required</span
+          >
+
+          <span *ngIf="company.errors?.['pattern']">
+            Enter a Valid Company Name</span
+          >
+        </div>
+
+        <label
+          ><i class="fa fa-briefcase" aria-hidden="true"></i> Designation</label
+        >
+
+        <input
+          type="text"
+          name="designation"
+          id="designation"
+          class="form-control"
+          formControlName="designation"
+          required
+        />
+
+        <div
+          *ngIf="designation.invalid && designation.touched"
+          class="text-danger"
+        >
+          <span *ngIf="designation.errors?.['required']"
+            >Designation Name is required</span
+          >
+
+          <!-- <span *ngIf="designation.errors?.['minlength']">Atleast 2 characters Must</span> -->
+
+          <!-- <span *ngIf="designation.errors?.['maxlength']"> Must not extend more than 50 characters</span> -->
+
+          <span *ngIf="designation.errors?.['pattern']">
+            Enter a Valid Designation</span
+          >
+        </div>
+
+        <div class="bttn">
+          <button type="submit" class="btn btn-primary" (click)="IntoLogin()">
+            Submit
+          </button>
+
+          <!-- <button routerLink="/login" [disabled]="!subscribeForm.valid" type="submit" class="btn btn-primary" (click)="goto()">Submit</button> -->
+        </div>
+      </form>
+    </div>
+    <div class="col-md-5 bg">
+      <img
+        src="../../assets/images/thissign.svg"
+        class="image-sec"
+        height="410px"
+        width="400px"
+      />
+    </div>
+  </div>
+</div>
