@@ -67,11 +67,10 @@ i {
   margin-right: 40px;
 }
 #sidebar {
-  position: fixed;
+  position: sticky;
   min-width: 250px;
   min-height:100vh;
   overflow-x: hidden;
-  // height: 100%;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
   background: grey;
   color: #fff;

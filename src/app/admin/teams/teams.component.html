@@ -1,1 +1,13 @@
-<p>teams works!</p>
+<div class="row">
+    <div class="card col-md-1.8 m-4" *ngFor="let myData of userProfile">
+        <div class="card-body">
+          <img class="profile" src="../../assets/images/userprof.png"/>
+          <!-- <h5 class="card-title" *ngFor="let user of singleData">{{user.full_name}}</h5>  -->
+    <h6><i class="fa fa-user" aria-hidden="true"></i><span>{{myData.full_name}}</span></h6>
+    <p><i class="fa fa-phone" aria-hidden="true"></i>  <span>{{myData.mobile_no}}</span> 
+    <p><i class="fa fa-suitcase" aria-hidden="true"></i><span>{{myData.designation}}</span>   </p>
+    <p><i class="fa fa-building" aria-hidden="true"></i> <span>{{myData.user_company}}</span></p>
+        </div>
+      </div>
+    </div>
+    <!-- <button (click)="getAllProjectDetails()">Click</button> -->    

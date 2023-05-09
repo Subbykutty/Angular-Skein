@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import * as $ from 'jquery';
+import { RouteComponent } from 'angular-routing';
+import { Router } from '@angular/router';
+
 // import { RouteComponent } from 'angular-routing';
 
 @Component({
@@ -11,7 +14,10 @@ import * as $ from 'jquery';
 export class AdminComponent implements OnInit {
   cleared: any;
   userDatas: any;
-  router: any;
+  
+  
+
+  constructor(private service: DataService,private router : Router) {}
 
   ngOnInit(): void {
     $(document).ready(function () {
@@ -20,10 +26,9 @@ export class AdminComponent implements OnInit {
       });
     });
   }
-  logout() {
-    localStorage.removeItem('dataa');
+  logout(){
+   let logout = localStorage.removeItem('Details');
+   console.log(logout)
     this.router.navigate(['/auth/login']);
   }
-
-  constructor(private service: DataService) {}
 }
